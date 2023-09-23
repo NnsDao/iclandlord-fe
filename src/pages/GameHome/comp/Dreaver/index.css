@@ -1,0 +1,12 @@
+.dreaver-content {
+  transition: 0.32s;
+  height: '100%';
+  float: 'left';
+  background-color: '#fff';
+  background-image: url('@/static/resource/form/rankBg.png');
+  transform: translateX(-100%);
+}
+
+.dreaver-content.on {
+  transform: translateX(0);
+}

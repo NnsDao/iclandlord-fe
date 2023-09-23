@@ -1,0 +1,41 @@
+.mask {
+  position: fixed;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.form {
+  position: fixed;
+  z-index: 10;
+  background-image: url('@/static/resource/form/defaultBg.png');
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  left: 50%;
+  transition: 0.16s;
+  transform: translate(-50%, 0) scale(0);
+}
+
+.form.on {
+  transform: translate(-50%, 0) scale(1);
+}
+
+.form .form-title {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.form .close-btn {
+  position: absolute;
+  flex-shrink: 0;
+  cursor: pointer;
+  background-image: url('@/static/resource/form/close.png');
+}

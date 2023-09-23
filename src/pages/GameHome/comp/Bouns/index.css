@@ -1,0 +1,57 @@
+.form-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+  padding-left: 0;
+}
+
+.form-content .form-left {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 15.2rem;
+}
+
+.side-item {
+  display: flex;
+  width: 100%;
+  flex-shrink: 0;
+  border: 1px solid var(--palette-white-20, rgba(255, 255, 255, 0.2));
+  background: var(--palette-transparent-black-20, rgba(0, 0, 0, 0.2));
+  align-items: center;
+  cursor: pointer;
+}
+
+.side-item.on {
+  background-image: url('@/static/resource/form/BounsActive.png');
+  border-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 4rem;
+  font-weight: 700;
+}
+
+.side-item .side-txt {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  /* line-height: 4rem; */
+  white-space: nowrap;
+}
+
+.side-item .side-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.form-content .form-right {
+  background-image: url('@/static/resource/form/bonusBg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* width: 46rem; */
+  flex-grow: 1;
+  height: 30rem;
+  flex-shrink: 0;
+}

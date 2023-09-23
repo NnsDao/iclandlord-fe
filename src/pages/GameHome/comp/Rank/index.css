@@ -1,0 +1,118 @@
+.rank-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rank-header {
+  background-color: transparent;
+}
+
+.rank-main .rank-main-header {
+  display: flex;
+}
+
+.rank-main .rank-desc {
+  background-image: url('@/static/resource/form/rankDesc.png');
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rank-desc span {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.scroll-rank-list {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.rank-main-content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.scroll-rank-content-left {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-rank-info {
+  /* position: absolute; */
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.rank-item {
+  display: flex;
+  background-image: url('@/static/resource/form/rankItemBg.png');
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+.worshop-index {
+  font-family: Oswald;
+  background: linear-gradient(179deg, #fff 0%, #e5c9ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ul li {
+  list-style-type: none;
+  text-align: left;
+  color: var(--palette-white-80, rgba(255, 255, 255, 0.8));
+  text-shadow: 0px 0px 6px 0px rgba(18, 6, 36, 0.5);
+  font-family: Oswald;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.rank-rules {
+  padding: 0;
+  margin: 0 auto;
+}
+
+.great-god {
+  background-image: url('@/static/resource/form/rankYellowBtn.png');
+  background-repeat: no-repeat;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.great-god span {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.scroll-rank-content-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrow-close {
+  position: absolute;
+  background-image: url('@/static/resource/form/arrowClose.png');
+  background-repeat: no-repeat;
+  top: 50%;
+  transform: translateY(-50%);
+}

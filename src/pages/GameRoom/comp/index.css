@@ -1,0 +1,118 @@
+.result-mask {
+  position: fixed;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.result-content {
+  position: fixed;
+  z-index: 10;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.16s;
+  transform: scale(0);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.result-content .result-title {
+  margin: 0 auto;
+}
+
+.result-content.on {
+  transform: scale(1);
+}
+
+.title-txt {
+  background: linear-gradient(179deg, #b25ffc 0%, #b0d9ff 83.85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: MiSans;
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.result-content .content-info {
+  display: flex;
+}
+
+.res-table {
+  flex-grow: 1;
+}
+
+.table-raw {
+  display: flex;
+  align-items: center;
+}
+
+.table-raw.inp {
+  background-image: url('@/static/resource/gameRoom/resInp.png');
+}
+
+.table-raw span {
+  flex-grow: 1;
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.res-avatar {
+  position: absolute;
+}
+
+.res-ctr-line .res-ctr-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.content-score {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-score h2 {
+  margin: 0 auto;
+  color: #fff;
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.content-score h3 {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0 auto;
+  margin-top: auto;
+}

@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: auto;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+input {
+  outline: none;
+}
+
+.App {
+  text-align: center;
+  letter-spacing: -0.01rem;
+  overflow: hidden;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 461px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 460px) and (min-width: 401px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button {
+  font-size: calc(10px + 2vmin);
+}
+
+.scale-touch {
+  scale: 1;
+  transition: 0.08s;
+}
+
+.scale-touch:active {
+  scale: 0.95;
+}
+
+:-webkit-keyframes ladein {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes ladein {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes ladeon {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+:-webkit-keyframes ladeon {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/* refactory login css */
+
+.dialog-container {
+  display: grid;
+  grid-gap: 5px;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 15px;
+  overflow: auto;
+  grid-template-columns: 1fr;
+  cursor: initial;
+  animation: move-in 0.18s;
+  max-width: 420px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* .connect-button {
+  width: 125px;
+  height: 52px;
+  line-height: 52px;
+  padding: 0;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+} */

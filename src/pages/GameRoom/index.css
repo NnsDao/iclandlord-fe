@@ -1,0 +1,210 @@
+.room-bg {
+  background-image: url('@/static/resource/gameRoom/bg.png');
+  width: 100vw;
+  background-size: 100vw 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.room-header .exit-btn {
+  position: absolute;
+}
+
+.game-header-center {
+  display: flex;
+  color: #fff;
+}
+
+.room-block .on {
+  background-image: url('@/static/resource/gameRoom/defaultPoker.png');
+  background-repeat: no-repeat;
+}
+
+.game-header-count {
+  background-image: url('@/static/resource/gameRoom/scoreBG.png');
+  background-repeat: no-repeat;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-header-score {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.game-header-center-left,
+.game-header-center-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.room-level-name {
+  background-image: url('@/static/resource/gameRoom/infoBG.png');
+  background-repeat: no-repeat;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.game-room-name {
+  background-image: url('@/static/resource/gameRoom/centerName.png');
+  background-repeat: no-repeat;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.game-room-name span {
+  color: #ffe6a6;
+  font-family: Oswald;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  animation: marquee 30s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.game-room-name {
+  width: 300px;
+  span {
+    animation: marquee 30s linear infinite;
+  }
+}
+
+.room-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-area {
+  display: flex;
+  /* width: 50%; */
+  /* flex-grow: 1; */
+}
+
+.player-area .player-info-box {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-area .player-info-box .player-avatar {
+  fill: var(--palette-transparent-black-20, rgba(0, 0, 0, 0.2));
+  stroke-width: 1px;
+  stroke: var(--palette-white-10, rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(25px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-area .player-info-box .player-avatar img {
+  border-radius: 50%;
+}
+
+.player-area .player-info-box .player-nickname {
+  color: #fff;
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.player-area .player-money {
+  border-radius: 200px;
+  background: var(--palette-transparent-black-30, rgba(0, 0, 0, 0.3));
+  display: flex;
+  padding: 4px;
+  align-items: center;
+  gap: 18px;
+  align-self: stretch;
+  margin-top: auto;
+  color: #fff;
+  font-weight: 700;
+}
+
+.player-area .player-money span {
+  color: var(--palette-true-gray-50, #fafafa);
+  text-align: right;
+  font-family: Oswald;
+  font-style: normal;
+  line-height: normal;
+}
+
+.player-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-card .player-card-num {
+  margin-top: auto;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.game-room-center {
+  /* flex-grow: 1; */
+  position: fixed;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.game-room-notify {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  /* background: var(--palette-transparent-black-50, rgba(0, 0, 0, 0.5)); */
+  margin: 0 auto;
+}
+
+.ld {
+  background: linear-gradient(179deg, #ffface 0%, #f6b553 83.85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-pok {
+  display: flex;
+  /* background-color: #f40; */
+  margin-top: auto;
+  /* justify-content: center; */
+}

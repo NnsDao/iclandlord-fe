@@ -1,0 +1,93 @@
+.form-content2 {
+  /* height: 20rem; */
+  padding: 0.8rem 3rem;
+  box-sizing: border-box;
+}
+
+.form-content2 .content-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-content2 .content-head .type {
+  width: 17rem;
+  height: 3.3rem;
+  line-height: 3.3rem;
+  justify-content: space-between;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+}
+
+.type-item {
+  width: 50%;
+  color: var(--palette-purple-900, #581c87);
+  font-family: Oswald;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-size: 1.2rem; */
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  /* line-height: 3.3rem; */
+  cursor: pointer;
+}
+
+.type-item.on {
+  background-image: url('@/static/resource/form/activeTabItem.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: var(--palette-orange-900, #7c2d12);
+}
+
+.form-content2 .content-head .money-block {
+  width: 248px;
+  height: 57px;
+  flex-shrink: 0;
+  display: flex;
+}
+
+/* 
+.form-content2 .content-head .money-block.coin {
+    margin-left: 4rem;
+} */
+
+.form-content2 .content-head .money-block.demond {
+  margin-left: 1.8rem;
+}
+
+.coin-icon {
+  flex-shrink: 0;
+  background-image: url('@/static/resource/coin.png');
+}
+
+.coin-num {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.good-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-content: space-between;
+}
+
+.good-content .good-item {
+  align-self: center;
+  justify-self: center;
+  background-image: url('@/static/resource/form/shopGood.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 11rem;
+  height: 12rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}

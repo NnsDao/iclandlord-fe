@@ -1,0 +1,99 @@
+.user-content {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2.66rem;
+}
+
+.user-content .left {
+  width: 16rem;
+  height: 100%;
+}
+
+.user-avatar2 {
+  margin-top: 2.6rem;
+}
+
+.id-line {
+  margin-top: 1rem;
+}
+
+.id-line .id-value {
+  color: var(--palette-violet-900, #4c1d95);
+  font-family: Oswald;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.id-line .id-title {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.copy-btn {
+  margin: 0 auto;
+  flex-shrink: 0;
+  background-image: url('@/static/resource/form/userCopy.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  cursor: pointer;
+  text-shadow: 0 0 10px rgba(124, 45, 18, 1);
+}
+
+.right {
+  flex-grow: 1;
+  margin-left: 3.4rem;
+  margin-right: 4rem;
+}
+
+.right .info-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.phone {
+  color: var(--palette-true-gray-50, #fafafa);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.right .info-line.line1 {
+}
+
+.right .info-line.line2 {
+  margin-top: 3.3rem;
+  display: flex;
+}
+
+.choose-box {
+  background-image: url('@/static/resource/form/userSex.png');
+  background-repeat: no-repeat;
+}
+
+.right .info-line.line3 {
+  margin-top: 2.4rem;
+}
+
+.right .info-line.line4 {
+  margin-top: 2rem;
+}

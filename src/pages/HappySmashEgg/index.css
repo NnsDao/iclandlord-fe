@@ -1,0 +1,139 @@
+.happy-egg-bg {
+  background: url('@/static/resource/goldenEgg/bg.png');
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  background-size: 100% 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.egg-header {
+  display: flex;
+  fill: rgba(0, 0, 0, 0.1);
+  stroke-width: 1px;
+  stroke: #2e1849;
+  position: relative;
+  animation: ladein 0.08s;
+}
+
+.smash-egg-title {
+  margin: 0;
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  background: linear-gradient(179deg, #ffface 0%, #f6b553 83.85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  zoom: 0.9;
+}
+
+.egg-header .bg-btn {
+  background-image: url('@/static/resource/goldenEgg/btnBG.png');
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.egg-header .bg-btn span {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  zoom: 0.8;
+}
+
+.my-egg-account {
+  display: flex;
+  width: 240px;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 200px;
+  border: 1px solid var(--palette-white-50, rgba(255, 255, 255, 0.5));
+  background: var(--palette-transparent-black-50, rgba(0, 0, 0, 0.5));
+  justify-content: space-between;
+}
+
+.egg-account-num {
+  flex-grow: 1;
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.egg-main {
+  display: flex;
+  position: relative;
+}
+
+.egg-main .egg-main-left .egg-gift-info-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.egg-item {
+  position: relative;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.egg-item .egg-chuizi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.score-note {
+  display: flex;
+  position: absolute;
+}
+
+.score-note-info {
+  background-image: url('@/static/resource/goldenEgg/info.png');
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.score-note-info span {
+  max-lines: 2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: keep-all;
+  text-overflow: ellipsis;
+}
+
+.score-tree {
+  position: absolute;
+  background-image: url('@/static/resource/goldenEgg/progress.png');
+  background-repeat: no-repeat;
+  overflow: visible;
+}
+
+.egg-main-right .egg-line-1 {
+  display: flex;
+}
+
+.float-blue-egg {
+  position: absolute;
+}
+
+.float-gift {
+  position: absolute;
+  cursor: pointer;
+  background-image: url('https://s3-alpha-sig.figma.com/img/df73/df1a/4ba5233f114b58f762e27edb223c30b9?Expires=1691366400&Signature=Qs0NBluLWpnzJquEBL0WAu4qMa7~3GyJZAmahaJwTYJSHFC-zGOJpW0tLgC7X4~mhqVB7BjGc7h2edVY9ItkWiy2CnySX0fBALZ6PVnnYgdB0AEV6QFYKjH9q-t~k980oCR66EOq34fG9WZSNOVxX3q9FHuQWfnZeg-BJtL2elrFPLmTTVo~BvWu-aKFQnnaRbEb16NJK3RZFDlpo93SpoDMyb5nt3lP1AEI0dgOGYHZCnphS6JJmZr4EpvclKkb6etqWUiFrownLSDpJ3wIFq8HaozmHVhjYdwqd5sQtuc57OEAaooES80JQv6Jakq0ll0lzhThMG7geEJ0xHELpA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+}

@@ -1,0 +1,116 @@
+.cat-header {
+  position: relative;
+}
+
+.cat-header h1 {
+  background: linear-gradient(179deg, #ffface 0%, #f6b553 83.85%);
+  -webkit-background-clip: text;
+  margin: 0 auto;
+  -webkit-text-fill-color: transparent;
+}
+
+.cat-header-help {
+  position: absolute;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  font-weight: 700;
+}
+
+.cat-container {
+  display: flex;
+  height: 100%;
+}
+
+.cat-left {
+  flex-grow: 1;
+  background-image: url('');
+}
+
+.token-wealth {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  margin: 0;
+  color: #fff;
+}
+
+.token-wealth h2 {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.token-wealth .token-wealth-title {
+}
+
+.number-of-food {
+  text-align: start;
+}
+
+.cat-level {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.cat-level .cat-level-progress {
+  background-image: url('');
+}
+
+.cat-heavy {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cat-heavy .feed-btn {
+  background-image: url('@/static/resource/form/catFeedBtn.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.cat-info {
+  display: flex;
+}
+
+.cat-info .step-btn {
+}
+
+.cat-info .prev {
+  background-image: url('@/static/resource/form/catPrev.png');
+  background-repeat: no-repeat;
+}
+
+.cat-info .cat-info-content {
+  background-image: url('@/static/resource/form/catInfoContent.png');
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: Oswald;
+  /* font-size: 22px; */
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  /* 28.6px */
+}
+
+.cat-info .next {
+  background-image: url('@/static/resource/form/catNext.png');
+  background-repeat: no-repeat;
+}
+
+.cat-foot-desc {
+  color: #fef08a;
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

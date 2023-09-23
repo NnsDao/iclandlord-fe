@@ -1,0 +1,229 @@
+.vip-header {
+  flex-shrink: 0;
+  background-image: url('@/static/resource/form/vipTitle.png');
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 auto;
+}
+
+.vip-content {
+  display: flex;
+}
+
+.vip-content .left {
+  z-index: -1;
+  background-image: url('@/static/resource/form/vipRole.png');
+  background-repeat: no-repeat;
+}
+
+.vip-content .right {
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.vip-content .right .change {
+  background-color: transparent;
+  border: none;
+  background-repeat: no-repeat;
+}
+
+.vip-content .right .change.prev {
+  background-image: url('@/static/resource/form/prev.png');
+}
+
+.vip-content .right .change.next {
+  background-image: url('@/static/resource/form/next.png');
+}
+
+.vip-top {
+  background-image: url('@/static/resource/form/vipTopBG.png');
+  background-repeat: no-repeat;
+}
+
+.vip-bottom {
+  background-image: url('@/static/resource/form/vipBottomBG.png');
+  background-repeat: no-repeat;
+}
+
+.vip-top-title {
+  color: var(--palette-purple-900, #581c87);
+  font-family: Oswald;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.vip-info-line {
+  display: flex;
+  color: #fff;
+  letter-spacing: -1px;
+  align-items: center;
+}
+
+.vip-nickname {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.vip-avatar-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.vip-info-box {
+  background-image: url('@/static/resource/form/vipInfoBox.png');
+  background-repeat: no-repeat;
+  margin-left: auto;
+  letter-spacing: 0;
+}
+
+.vip-info-box .vip-info-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vip-info-box .vip-info-get {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.vip-bottom-box-title {
+  color: var(--palette-purple-900, #581c87);
+}
+
+.vip-bottom-line {
+  display: flex;
+}
+
+.vip-bottom-line .gift-line {
+  background-image: url('@/static/resource/form/giftLine.png');
+  background-repeat: no-repeat;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+}
+
+.vip-bottom-line .gift-line .vip-token-useing {
+  color: var(--palette-true-gray-50, #fafafa);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+  transform: scaleX(0.8);
+  zoom: 0.8;
+}
+
+.vip-bottom-line .gift-line .vip-using {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.vip-bottom-line .origin-price {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.vip-bottom-line .discount-price {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.vip-bottom-line .buy-now {
+  background-image: url('@/static/resource/form/yellowButton.png');
+  background-repeat: no-repeat;
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  text-shadow: 0 0 0.5rem #7c2d12;
+}
+
+.vip-footer {
+  background-image: url('@/static/resource/form/vipFoot.png');
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vip-footer .current-level {
+  color: var(--palette-white-100, #fff);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  zoom: 0.8;
+}
+
+.vip-footer .vip-level {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.vip-footer .level-progress {
+  display: flex;
+  align-items: center;
+}
+
+.vip-footer h2 {
+  margin: 0;
+  white-space: nowrap;
+  color: #fff;
+  zoom: 0.9;
+}
+
+.vip-footer .yellow {
+  color: var(--palette-yellow-200, #fef08a);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.vip-footer .progress {
+  background-image: url('@/static/resource/form/progress.png');
+}
+
+.vip-footer .deposit {
+  background-image: url('@static/resource/form/deposit.png');
+  background-repeat: no-repeat;
+  margin-left: auto;
+  color: var(--palette-orange-900, #7c2d12);
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.vip-footer h2 {
+  margin: 0;
+}
