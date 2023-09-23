@@ -22,7 +22,7 @@ export default function FastStart() {
   const [param, setParam] = useSearchParams();
 
   const [isWait, setIsWait] = useState(false);
-  const [time, setTime] = useState(120);
+  const [timeWaitStatus, setTime] = useState(120);
   const [tid, setTableID] = useState(0);
 
   let timer = useRef<any>();
@@ -50,6 +50,7 @@ export default function FastStart() {
     console.log(res, 'cancle');
     timer.current = clearInterval(timer.current);
     // setTimer(null)
+
     setIsWait(false);
   };
 
@@ -125,7 +126,7 @@ export default function FastStart() {
       }
       timer.current = clearInterval(timer.current);
     };
-  }, [state.isAuthed]);
+  }, [state.isAuthed, timeWaitStatus]);
 
   const gameCardList = [
     {
@@ -204,7 +205,7 @@ export default function FastStart() {
               fontWeight: '700',
               textTransform: 'uppercase',
             }}
-            time={120}
+            time={timeWaitStatus}
           />
           <h2>s</h2>
         </div>
