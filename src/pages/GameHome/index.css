@@ -546,12 +546,12 @@
   display: flex;
 }
 
-.rank-container .rank-tab.on {
+.rank-container .rank-tab .on {
   background-image: url('https://s3-alpha-sig.figma.com/img/4445/e82a/feb01363e4964e23dbd01b0c373c4abe?Expires=1690761600&Signature=B6HhQRwRywwfoB~OuYqKoDUZAktwR8hWQpuukaUsV4u2rawVIlsDFnwIa5s8s37lH5Zdq4ze6f0aned7Yfnnac81YbTQaGVLhZ4HFEtvzgPHEeEzlOZffxFsLwtGdFlFj3xBxovSRGeNGFGW7nBIzN3W8Q5zOs5YAb1pV-meAeLKsAsAJmsli-4RvtDMTdZIOjSWyn434Cm12eTEdaCfyooomTMGlEaJG1g8v8WjA1FF3nsE3WcizFMTVnR-HwYfNUEiXwzeJiMRyRwUspdhFh6cyn1~jo7QrdRy~eDcBRj2uh6Q3nwAgKMyMsiYZl2qeolrVqIMspvaKZZhn1F-vA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
   background-repeat: no-repeat;
 }
 
-.rank-container .rank-tab.on h2 {
+.rank-container .rank-tab .on h2 {
   color: var(--palette-orange-900, #7c2d12);
 }
 

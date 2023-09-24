@@ -34,7 +34,7 @@ export default function FastStart() {
 
   useEffect(() => {
     const autoBegin = param.get('auto');
-    console.log(autoBegin);
+    console.log(autoBegin, 'autoBegin');
     if (autoBegin) {
       startGame();
     }
@@ -115,7 +115,7 @@ export default function FastStart() {
   useEffect(() => {
     if (state.isAuthed) {
       (async () => {
-        const res = await Serves.get_points();
+        const res = await Serves.get_points(state.principal);
         setToken(res);
       })();
     }

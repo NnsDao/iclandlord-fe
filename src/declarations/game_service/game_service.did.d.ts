@@ -85,9 +85,10 @@ export interface _SERVICE {
   call_number: ActorMethod<[CallNumberReq], Result_1>;
   cancel_gamer: ActorMethod<[], undefined>;
   destroy_table: ActorMethod<[TableId], undefined>;
-  get_points: ActorMethod<[], bigint>;
+  get_points: ActorMethod<[Principal], bigint>;
   get_settlement_record: ActorMethod<[GetSettlementRecord], Array<[Principal, bigint]>>;
   get_table: ActorMethod<[TableId], Table>;
+  get_vitality: ActorMethod<[Principal], bigint>;
   mint_points: ActorMethod<[], Result_2>;
   pass: ActorMethod<[TableId], Result_2>;
   re_begin: ActorMethod<[TableId], Result>;

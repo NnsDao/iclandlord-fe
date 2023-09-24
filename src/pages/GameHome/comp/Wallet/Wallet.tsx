@@ -49,7 +49,7 @@ export default function Wallet({ open, close }: { open: boolean; close: MouseEve
       const aId = principalToAccountIdentifier(principal && !principal.isAnonymous() && principal.toText(), 0);
       setAccountID(aId);
       (async () => {
-        const res = await Serves.get_points();
+        const res = await Serves.get_points(principal);
         console.log(res, 'token balance');
         setToekn(res);
         const useICP = await getUserICP(aId);

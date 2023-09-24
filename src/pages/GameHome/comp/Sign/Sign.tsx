@@ -1,7 +1,7 @@
 import { previewPopupFile } from '@/components/previewPopupFile';
 import Serves from '@/hooks/Serves';
-import { useSizeState } from '@/hooks/sizeContext';
 import { useGlobalContext } from '@/hooks/Store/Store';
+import { useSizeState } from '@/hooks/sizeContext';
 import avalible from '@/static/resource/form/avalible.svg';
 import confirmBg from '@/static/resource/form/confirmBg.png';
 import signBg from '@/static/resource/form/signBg.png';
@@ -33,7 +33,7 @@ export default function Sign({ open, close, signCallback }) {
     } else {
       previewPopupFile({ txt: 'You can claim a token every 24 hours.' });
     }
-    const _res = await Serves.actor.get_points();
+    const _res = await Serves.get_points(principal);
     signCallback(_res);
   }
 

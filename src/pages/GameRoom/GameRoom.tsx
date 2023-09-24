@@ -21,7 +21,7 @@ import rule from '@/static/rule.json';
 import { Principal } from '@dfinity/principal';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useGlobalContext } from '../../hooks/Store/Store';
 import Pocker from './comp/Poker';
@@ -89,19 +89,10 @@ const GameRoom = (props: Props) => {
   const [tableStatus, setTableStatus] = useState<TableStatusResp>(initial);
   const [settingShow, setSettingShow] = useState(false);
 
-  const [tokenTwo, setPlayerTokenTwo] = useState(BigInt(0));
+  const [tokenRight, setPlayerTokenRight] = useState(BigInt(0));
+  const [tokenLeft, setPlayerTokenLeft] = useState(BigInt(0));
 
   //check token balance
-
-  useEffect(() => {
-    if (principal) {
-      (async () => {
-        const res = await Serves.get_points();
-        console.log(res, 9999999);
-        setPlayerTokenTwo(res);
-      })();
-    }
-  }, [principal]);
 
   // todo 备用字段
   const [players, setPlayers] = useState<Player[]>([]);
@@ -111,6 +102,22 @@ const GameRoom = (props: Props) => {
     principalId: '',
   });
   const [selected, setSelected] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (players) {
+      getToken(players);
+    }
+  }, [players]);
+
+  async function getToken(players) {
+    let principalId = Principal.fromText(players[0]['principalId']);
+    const res = await Serves.get_points(principalId);
+    setPlayerTokenRight(res);
+
+    let principalTwoId = Principal.fromText(players[1]['principalId']);
+    const res_left = await Serves.get_points(principalTwoId);
+    setPlayerTokenLeft(res_left);
+  }
 
   /**
    * @param principal string
@@ -178,6 +185,7 @@ const GameRoom = (props: Props) => {
     } else {
       ele = <></>;
     }
+    // getToken(pos, player.principalId);
 
     if (pos == 2) {
       return (
@@ -195,7 +203,7 @@ const GameRoom = (props: Props) => {
 
             <div className="player-money">
               <img style={{ ...getSizeStyle(34, 37) }} src={coin} />
-              <span style={{ ...font(25), letterSpacing: sp(1.5) }}> {tokenTwo.toString()}</span>
+              <span style={{ ...font(25), letterSpacing: sp(1.5) }}> {tokenRight.toString()}</span>
             </div>
           </div>
 
@@ -251,6 +259,7 @@ const GameRoom = (props: Props) => {
         </div>
       );
     }
+
     return (
       <div className="player-area" style={{ marginLeft: 'auto', marginRight: w(65), height: h(277) }}>
         <div className="player-card" style={{ height: h(277) }}>
@@ -304,7 +313,7 @@ const GameRoom = (props: Props) => {
 
           <div className="player-money">
             <img style={{ ...getSizeStyle(34, 37) }} src={coin} />
-            <span style={{ ...font(25), letterSpacing: sp(1.5) }}>{tokenTwo.toString()}</span>
+            <span style={{ ...font(25), letterSpacing: sp(1.5) }}>{tokenLeft.toString()}</span>
           </div>
         </div>
       </div>
@@ -321,13 +330,11 @@ const GameRoom = (props: Props) => {
   }
 
   function getSort(num: number) {
-    if (num == 54 || num == 53) {
-      // 大王, 小王
+    if (num == 53 || num == 54) {
       return num;
     }
     const currrent = num % 13;
     if (currrent == 0 || currrent == 1 || currrent == 2) {
-      // 一和二单独处理
       return currrent + 13;
     }
     return currrent;
@@ -409,7 +416,7 @@ const GameRoom = (props: Props) => {
       })
       .catch(error => {
         // todo handle Error
-        toast.error('请求失败!请检查网络');
+        toast.error('request time out');
       });
   }
 
@@ -848,7 +855,6 @@ const GameRoom = (props: Props) => {
   async function shotPoker(_selected: number[], tid: any) {
     const ppp: number[] = _selected.map(it => pokers[it].rank - 1);
 
-    console.log(ppp, '请求数组');
     timer.current = clearInterval(timer.current);
 
     // the rest pokers
@@ -929,7 +935,7 @@ const GameRoom = (props: Props) => {
     //* lasrPoker
     let _selected: number[] = JSON.parse(JSON.stringify(selected));
 
-    if (strName == 'Ww') {
+    if (strName == 'wW') {
       isOk = true;
       shotPoker([_selected[0], _selected[1]], tid);
       return;
@@ -949,43 +955,6 @@ const GameRoom = (props: Props) => {
         console.log(list, key);
         index = list.indexOf(strName);
 
-        // if (index < 0 && key == 'trio_single' && isTrioSingle(strName)) {
-        //   // Handle Single
-        //   // May be , for Example 3444 355 3666
-        //   console.log(strName, '123');
-        //   strName = strName.slice(1).concat(strName.slice(0, 1));
-        //   _selected = _selected.slice(1).concat(_selected.slice(0, 1));
-        //   index = list.indexOf(strName);
-        //   console.log(_selected, strName, '没有上手牌');
-        // } else if (index < 0 && key == 'trio_pair' && isTrioPair(strName)) {
-        //   // may be 33444 33555 33666
-        //   strName = strName.slice(2).concat(strName.slice(0, 2));
-        //   _selected = _selected.slice(2).concat(_selected.slice(0, 2));
-        //   index = list.indexOf(strName);
-        //   console.log(_selected, strName, 'slsls');
-        // }
-
-        // else if (index < 0 && key == 'seq_trio_single2') {
-        //   // for example 34555666 -> 55566634
-        //   if (strName[0] != strName[1] && strName[1] != strName[2]) {
-        //     strName = strName.slice(2).concat(strName.slice(0, 2));
-        //   } else if (strName[1] == strName[2] && strName[2] == strName[3]) {
-        //     // for example  35556667 -> 55566637
-        //     strName = strName.slice(1, strName.length - 2).concat(strName[0] + strName[strName.length - 1]);
-        //   }
-        // } else if (index < 0 && key === 'seq_trio_single3') {
-        //   // for example 34666777888Q -> 66677788834Q
-        //   if (strName[0] != strName[1] && strName[1] != strName[2] && strName[2] == strName[3]) {
-        //     if (strName[3] == strName[4]) {
-        //     } else {
-        //       // for example 366677788890 -> 666777888390
-        //     }
-        //     strName = strName.slice(2).concat(strName.slice(0, 2));
-        //   } else if (false) {
-        //     // for example 345666777888 -> 666777888345
-        //   }
-        // }
-
         isOk = index != -1;
         if (isOk) break;
       }
@@ -997,33 +966,13 @@ const GameRoom = (props: Props) => {
         str += name;
       });
 
-      // *找到牌型
+      // poker type
       let pType: Pt = 'single';
       let index: number = -1;
       for (const key in rule) {
         let list: string[] = rule[key];
         index = list.indexOf(str);
         console.log(list, key);
-        // if(index < 0) {
-        //   list = list.map(it => sortCombination(it))
-        //   index = list.indexOf(str);
-        // }
-        // if (index < 0 && (key as Pt) == 'trio_single' && isTrioSingle(str)) {
-        //   // Handle Single
-
-        //   // for example：3444， 3555
-        //   console.log(_selected);
-        //   str = str.slice(1, str.length).concat(str.slice(0, 1));
-        //   strName = strName.slice(1).concat(strName.slice(0, 1));
-        //   _selected = _selected.slice(1, _selected.length).concat(_selected.slice(0, 1));
-        //   index = list.indexOf(str);
-        //   console.log(_selected, str, 'slsls');
-        // } else if (index < 0 && (key as Pt) == 'trio_pair' && isTrioPair(str)) {
-        //   str = str.slice(2).concat(str.slice(0, 2));
-        //   strName = strName.slice(2).concat(strName.slice(0, 2));
-        //   _selected = _selected.slice(2).concat(_selected.slice(0, 2));
-        //   index = list.indexOf(str);
-        // }
 
         // find lastPoker type
         if (index > -1) {
@@ -1033,7 +982,7 @@ const GameRoom = (props: Props) => {
       }
 
       if (pType == 'rocket') {
-        //* 没有牌可以出了
+        toast.error('Unsurpassed Cards');
         resetPokers();
         return;
       }
@@ -1041,7 +990,7 @@ const GameRoom = (props: Props) => {
       isOk = rangeList.indexOf(strName) > -1;
       if (!isOk) {
         resetPokers();
-        // todo 提示牌型不对
+        toast.error('error poker type');
         return;
       }
       // *测试代码
@@ -1183,7 +1132,6 @@ const GameRoom = (props: Props) => {
       // if (pType == 'bomb') {
       //   return;
       // }
-      // *炸弹
       for (const bomb of rule.bomb) {
         if (cardsStr.includes(bomb)) {
           const firstIndex = cardsStr.indexOf(bomb[0]);
@@ -1196,6 +1144,8 @@ const GameRoom = (props: Props) => {
         }
       }
       // * 王炸
+      console.log(pokers[0].name, 9090909090);
+
       if (pokers[0].name == 'W' && pokers[1].name == 'w') {
         setSelected([0, 1]);
       }
@@ -1289,7 +1239,7 @@ const GameRoom = (props: Props) => {
         }
       }
       // * 王炸
-      if (pokers[0].name == 'W' && pokers[1].name == 'w') {
+      if (pokers[0].name == 'w' && pokers[1].name == 'W') {
         return true;
       }
 
@@ -1510,6 +1460,7 @@ const GameRoom = (props: Props) => {
       </div>
 
       {buildUserPok()}
+      <Toaster />
     </div>
   );
 };

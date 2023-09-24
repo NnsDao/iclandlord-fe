@@ -2,7 +2,7 @@ import { astroxInit } from '@/lib/utils';
 import type { ActorMethod } from '@dfinity/agent';
 import { Actor, HttpAgent, Identity } from '@dfinity/agent';
 import { AuthClient } from '@dfinity/auth-client';
-import type { Principal } from '@dfinity/principal';
+import { Principal } from '@dfinity/principal';
 import { idlFactory as idlFactoryGame } from '../declarations/game_service/index';
 import { AUTH_HOUR_MS, CONNECT_OBJ_HOST, GAME_SERVICE } from '../lib/constants';
 
@@ -126,8 +126,8 @@ class Service {
     return await this.actor.pass(table_id);
   }
 
-  async get_points() {
-    return await this.actor.get_points();
+  async get_points(principal) {
+    return await this.actor.get_points(principal);
   }
 }
 
@@ -224,9 +224,10 @@ interface ImplementedActorMethods {
   call_number: ActorMethod<[CallNumberReq], Result_1>;
   cancel_gamer: ActorMethod<[], undefined>;
   destroy_table: ActorMethod<[TableId], undefined>;
-  get_points: ActorMethod<[], bigint>;
+  get_points: ActorMethod<[Principal], bigint>;
   get_settlement_record: ActorMethod<[GetSettlementRecord], Array<[Principal, bigint]>>;
   get_table: ActorMethod<[TableId], Table>;
+  get_vitality: ActorMethod<[Principal], bigint>;
   mint_points: ActorMethod<[], Result_2>;
   pass: ActorMethod<[TableId], Result_2>;
   re_begin: ActorMethod<[TableId], Result>;

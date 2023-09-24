@@ -18,19 +18,19 @@ const Header = forwardRef(({ setUserOpen, setVipOpen }: any, ref) => {
     };
   });
 
+  const principal = state.principal;
+
+  console.log(state.isAuthed, principal, 'header page login');
+
   useEffect(() => {
     if (state.isAuthed) {
       (async () => {
-        const res = await Serves.get_points();
+        const res = await Serves.get_points(principal);
         console.log(res, 9999999);
         setToekn(res);
       })();
     }
   }, [state.isAuthed]);
-
-  const principal = state.principal;
-
-  console.log(state.isAuthed, principal, 'header page login');
 
   const { w, h, getSizeStyle, font, sp } = useSizeState();
 
