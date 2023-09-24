@@ -129,12 +129,12 @@ export default function FastStart() {
   }, [state.isAuthed, timeWaitStatus]);
 
   const gameCardList = [
-    {
-      title: 'Lower Level Field',
-      note: 20,
-      conditions: '1000-15k',
-      score: 4,
-    },
+    // {
+    //   title: 'Lower Level Field',
+    //   note: 20,
+    //   conditions: '1000-15k',
+    //   score: 4,
+    // },
     {
       title: 'the Common Field',
       note: 100,

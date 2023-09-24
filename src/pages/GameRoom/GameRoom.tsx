@@ -1,7 +1,6 @@
 import Count from '@/components/Count';
 import Serves, { TableStatusResp } from '@/hooks/Serves';
 import { useSizeState } from '@/hooks/sizeContext';
-import coin from '@/static/resource/coin.png';
 import defaultAvatar from '@/static/resource/defaultAvatar.png';
 import handCard from '@/static/resource/fastStart/hand-btn.png';
 import hints from '@/static/resource/fastStart/hints-btn.png';
@@ -19,6 +18,8 @@ import robot from '@/static/resource/gameRoom/robot.png';
 import setting from '@/static/resource/gameRoom/setting.png';
 import rule from '@/static/rule.json';
 import { Principal } from '@dfinity/principal';
+import { shortPrincipal } from '../../lib/utils';
+
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
@@ -90,7 +91,9 @@ const GameRoom = (props: Props) => {
   const [settingShow, setSettingShow] = useState(false);
 
   const [tokenRight, setPlayerTokenRight] = useState(BigInt(0));
+  const [timeCount, setPlayerTimeOut] = useState(60);
   const [tokenLeft, setPlayerTokenLeft] = useState(BigInt(0));
+  const [tokenLandlord, setPlayerTokenMe] = useState(BigInt(0));
 
   //check token balance
 
@@ -103,21 +106,25 @@ const GameRoom = (props: Props) => {
   });
   const [selected, setSelected] = useState<number[]>([]);
 
-  useEffect(() => {
-    if (players) {
-      getToken(players);
-    }
-  }, [players]);
+  // async function getToken(num, players) {
+  //   if (!num) {
+  //     let principalId = Principal.fromText(players);
+  //     const res_me = await Serves.get_points(principalId);
+  //     setPlayerTokenMe(res_me);
+  //   }
+  //   if (num == 2) {
+  //     let principalTwoId = Principal.fromText(players);
+  //     const res_right = await Serves.get_points(principalTwoId);
 
-  async function getToken(players) {
-    let principalId = Principal.fromText(players[0]['principalId']);
-    const res = await Serves.get_points(principalId);
-    setPlayerTokenRight(res);
+  //     setPlayerTokenRight(res_right);
+  //   }
 
-    let principalTwoId = Principal.fromText(players[1]['principalId']);
-    const res_left = await Serves.get_points(principalTwoId);
-    setPlayerTokenLeft(res_left);
-  }
+  //   if (num == 1) {
+  //     let principalId = Principal.fromText(players);
+  //     const res_left = await Serves.get_points(principalId);
+  //     setPlayerTokenLeft(res_left);
+  //   }
+  // }
 
   /**
    * @param principal string
@@ -185,9 +192,15 @@ const GameRoom = (props: Props) => {
     } else {
       ele = <></>;
     }
-    // getToken(pos, player.principalId);
-
+    // right
     if (pos == 2) {
+      // setPlayerTokenRightPrincipal(player.principalId);
+      // setTimeout(() => {
+      //   console.log('player id', player.principalId);
+
+      //   getToken(2, player.principalId);
+      // }, 30000);
+
       return (
         <div className="player-area" style={{ marginLeft: w(65), height: h(277) }}>
           <div className="player-info-box" style={{ marginTop: h(36), borderRadius: `50% 50% ${sp(20)} ${sp(20)}` }}>
@@ -198,13 +211,13 @@ const GameRoom = (props: Props) => {
             />
 
             <h2 style={{ ...font(23) }} className="player-nickname">
-              {player.principalId.slice(3, 7)}
+              {shortPrincipal(player.principalId)}
             </h2>
 
-            <div className="player-money">
+            {/* <div className="player-money">
               <img style={{ ...getSizeStyle(34, 37) }} src={coin} />
               <span style={{ ...font(25), letterSpacing: sp(1.5) }}> {tokenRight.toString()}</span>
-            </div>
+            </div> */}
           </div>
 
           <div className="player-card" style={{ height: h(277) }}>
@@ -220,7 +233,7 @@ const GameRoom = (props: Props) => {
                   marginTop: h(58),
                 }}
                 className="player-time">
-                <Count time={60} style={{ color: '#624CF6' }} />
+                <Count time={timeCount} style={{ color: '#624CF6' }} />
               </div>
             ) : (
               <>
@@ -259,6 +272,12 @@ const GameRoom = (props: Props) => {
         </div>
       );
     }
+    // left
+
+    // setTimeout(() => {
+    //   console.log('player id', player.principalId);
+    //   getToken(1, player.principalId);
+    // }, 30000);
 
     return (
       <div className="player-area" style={{ marginLeft: 'auto', marginRight: w(65), height: h(277) }}>
@@ -275,7 +294,7 @@ const GameRoom = (props: Props) => {
                 marginTop: h(58),
               }}
               className="player-time">
-              <Count time={60} style={{ color: '#624CF6' }} />
+              <Count time={timeCount} style={{ color: '#624CF6' }} />
             </div>
           ) : (
             <>
@@ -308,13 +327,13 @@ const GameRoom = (props: Props) => {
           />
 
           <h2 style={{ ...font(23) }} className="player-nickname">
-            {player.principalId.slice(3, 7)}
+            {shortPrincipal(player.principalId)}
           </h2>
 
-          <div className="player-money">
+          {/* <div className="player-money">
             <img style={{ ...getSizeStyle(34, 37) }} src={coin} />
             <span style={{ ...font(25), letterSpacing: sp(1.5) }}>{tokenLeft.toString()}</span>
-          </div>
+          </div> */}
         </div>
       </div>
     );
@@ -471,7 +490,6 @@ const GameRoom = (props: Props) => {
         });
       }
     });
-
     setPlayers(arr);
   }
 
@@ -533,6 +551,14 @@ const GameRoom = (props: Props) => {
 
   // Draw the current user's hand
   function buildUserPok() {
+    // self
+
+    // setTimeout(() => {
+    //   console.log('player id', principal?.toText());
+
+    //   getToken(0, principal?.toText());
+    // }, 30000);
+
     return (
       <>
         <div className="user-pok" style={{ height: h(200) }}>
@@ -543,7 +569,16 @@ const GameRoom = (props: Props) => {
               imgStyle={{ ...getSizeStyle(112, 112), left: 0 }}
               isLandlord={determinePlayerIdentity(principal?.toText()!)}
             />
+            {/*<h2 style={{ ...font(23) }} className="player-nickname">
+              {shortPrincipal(principal?.toText()!)}
+            </h2>
+
+            <div className="player-money">
+              <img style={{ ...getSizeStyle(34, 37) }} src={coin} />
+              <span style={{ ...font(25), letterSpacing: sp(1.5) }}> {tokenLandlord.toString()}</span>
+            </div> */}
           </div>
+
           <div style={{ marginLeft: w(-30), flexGrow: 1, display: 'flex', zIndex: 0, justifyContent: 'center' }}>
             {generatePokes()}
           </div>
@@ -563,7 +598,7 @@ const GameRoom = (props: Props) => {
               position: 'fixed',
             }}
             className="player-time">
-            <Count time={60} style={{ color: '#624CF6' }} />
+            <Count time={timeCount} style={{ color: '#624CF6' }} />
           </div>
         ) : (
           <></>
@@ -690,7 +725,7 @@ const GameRoom = (props: Props) => {
     setTimer(() => {
       pullTableStatus(tid);
     });
-    toast.success('Successfully!');
+    // toast.success('Successfully!');
   }
 
   function buildControl() {
@@ -990,7 +1025,6 @@ const GameRoom = (props: Props) => {
       isOk = rangeList.indexOf(strName) > -1;
       if (!isOk) {
         resetPokers();
-        toast.error('error poker type');
         return;
       }
       // *测试代码
@@ -1031,8 +1065,7 @@ const GameRoom = (props: Props) => {
         });
       })
       .catch(error => {
-        // todo 处理错误
-        toast.error('请求失败!请检查网络');
+        toast.error('request time out');
       });
   }
 
@@ -1047,14 +1080,14 @@ const GameRoom = (props: Props) => {
       resetPokers();
       const lastPoker = Array.from(tableStatus.last_pokers);
       if (!lastPoker || lastPoker.length == 0) {
-        // *没有上手手牌 出一张最小的
+        // auto hand card
         setSelected([pokers.length - 1]);
         return;
       }
       if (lastPoker[0] == 52 && lastPoker[1] == 53) {
         return;
       }
-      // * 有手牌
+      // * last hand card
       const lp = Array.from(lastPoker);
       let str = '';
       lp.forEach(it => {
@@ -1063,7 +1096,7 @@ const GameRoom = (props: Props) => {
         str += name;
       });
 
-      //* 先定位到类型
+      //* search type
       let pType: Pt = 'single';
       let index: number = 0;
       for (const key in rule) {
@@ -1143,8 +1176,7 @@ const GameRoom = (props: Props) => {
           ]);
         }
       }
-      // * 王炸
-      console.log(pokers[0].name, 9090909090);
+      // * king
 
       if (pokers[0].name == 'W' && pokers[1].name == 'w') {
         setSelected([0, 1]);
@@ -1278,6 +1310,12 @@ const GameRoom = (props: Props) => {
       tun = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!timeCount) {
+      canIPass() ? handlePass : handleHint();
+    }
+  }, [timeCount]);
 
   return (
     <div className="room-bg">
